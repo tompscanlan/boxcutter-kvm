@@ -127,7 +127,7 @@ source "qemu" "ubuntu" {
   disk_size         = "16G"
   disk_compression  = true
   format            = "qcow2"
-  headless          = false
+  headless          = true
   http_directory    = var.http_directory
   iso_checksum      = var.iso_checksum
   iso_url           = var.iso_url
