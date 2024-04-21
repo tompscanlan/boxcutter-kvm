@@ -117,6 +117,12 @@ variable "vm_name" {
   default     = "ubuntu-22.04-bios-x86_64.qcow2"
 }
 
+variable "headless" {
+  description = "Run the VM headless."
+  type        = bool
+  default     = true
+}
+
 source "qemu" "ubuntu" {
   # Ubuntu 20.04 image default timeout is 5s, so we need to be fast
   boot_wait = "5s"
@@ -127,7 +133,7 @@ source "qemu" "ubuntu" {
   disk_size         = "16G"
   disk_compression  = true
   format            = "qcow2"
-  headless          = true
+  headless          = var.headless
   http_directory    = var.http_directory
   iso_checksum      = var.iso_checksum
   iso_url           = var.iso_url
