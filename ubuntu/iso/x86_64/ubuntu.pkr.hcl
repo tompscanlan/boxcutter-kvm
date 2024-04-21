@@ -1,3 +1,12 @@
+packer {
+  required_plugins {
+    qemu = {
+      version = "~> 1"
+      source  = "github.com/hashicorp/qemu"
+    }
+  }
+}
+
 variable "ssh_username" {
   description = "The username to connect to SSH with."
   type        = string
